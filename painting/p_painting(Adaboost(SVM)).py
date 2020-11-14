@@ -62,7 +62,7 @@ ri_PaintingLT_prepared_train_re, ri_PaintingLT_prepared_train_val, ri_PaintingLT
 # **Adaboost(SVM)** 모델 훈련 시킴
 
 from sklearn.ensemble import AdaBoostRegressor
-from sklearn.svm import SVR  #((时间太长,慎重)
+from sklearn.svm import SVR
 ada_svr_reg = AdaBoostRegressor(
     SVR(C=1000,degree=3,kernel='rbf'), n_estimators=30,
    learning_rate=0.1, random_state=42)

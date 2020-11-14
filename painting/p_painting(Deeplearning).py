@@ -58,7 +58,7 @@ ri_PaintingLT_prepared_train, ri_PaintingLT_prepared_test, ri_PaintingLT_labels_
 ri_PaintingLT_prepared_train_re, ri_PaintingLT_prepared_train_val, ri_PaintingLT_labels_train_re, ri_PaintingLT_labels_train_val = train_test_split(ri_PaintingLT_prepared_train, ri_PaintingLT_labels_train, test_size = 0.25, random_state = 42)
 
 ###**Deeplearning**###
-
+#
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 dl_m_col = len(ri_PaintingLT_prepared[0])
