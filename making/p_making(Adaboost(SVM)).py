@@ -59,7 +59,7 @@ ri_MakingLT_prepared_train_re, ri_MakingLT_prepared_train_val, ri_MakingLT_label
 ###**Adaboost(SVM)**###
 
 # **Adaboost(SVM)** 모델 훈련 시킴
-
+###
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.svm import SVR
 ada_svr_reg = AdaBoostRegressor(

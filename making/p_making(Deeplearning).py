@@ -59,7 +59,7 @@ ri_MakingLT_prepared_train_re, ri_MakingLT_prepared_train_val, ri_MakingLT_label
 
 
 ###**Deeplearning**###
-
+##
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 dl_m_col = len(ri_MakingLT_prepared[0])
