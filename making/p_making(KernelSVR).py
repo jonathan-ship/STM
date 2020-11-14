@@ -60,65 +60,6 @@ ri_MakingLT_prepared_train_re, ri_MakingLT_prepared_train_val, ri_MakingLT_label
 
 # KernelSVR 모델 훈련 시킴
 from sklearn.svm import SVR
-svm_rbf_reg = SVR(kernel="rbf")
-svm_rbf_reg.fit(ri_MakingLT_prepared_train_re,ri_MakingLT_labels_train_re)
-ri_MakingLT_predicted = svm_rbf_reg.predict(ri_MakingLT_prepared_train_val)
-print("Predictions:", ri_MakingLT_predicted)
-print("Labels:", list(ri_MakingLT_labels_train_val))
-#rmse측정
-from sklearn.metrics import mean_squared_error
-svm_rbf_reg_mse_val = mean_squared_error(ri_MakingLT_labels_train_val, ri_MakingLT_predicted)
-print(svm_rbf_reg_mse_val)
-
-#훈렬한 모틸이 overfitting인지 unoverfitting인지 판단(방법1:학습곡선)
-def plot_learning_curves_sup(model,X_train,X_val,y_train,y_val):
-  train_errors, val_errors = [], []
-  for m in range(1,len(X_train),3000):
-    model.fit(X_train[:m], y_train[:m])
-    y_train_predict = model.predict(X_train[:m])
-    y_val_predict = model.predict(X_val)
-    train_errors.append(mean_squared_error(y_train[:m],y_train_predict))
-    val_errors.append(mean_squared_error(y_val_predict,y_val))
-  plt.plot(np.sqrt(train_errors), "r-+", linewidth=2, label="train")
-  plt.plot(np.sqrt(val_errors), "b-", linewidth=3, label="val")
-  plt.legend(loc="upper right", fontsize=14)
-  plt.xlabel("Training set size/3000", fontsize=14)
-  plt.ylabel("RMSE", fontsize=14)
-
-plot_learning_curves_sup(svm_rbf_reg, ri_MakingLT_prepared_train_re, ri_MakingLT_prepared_train_val, ri_MakingLT_labels_train_re, ri_MakingLT_labels_train_val)
-plt.axis([0, len(ri_MakingLT_prepared_train_re)/3000, 0, 20])
-plt.show()
-
-#훈렬한 모틸이 overfitting인지 unoverfitting인지 판단(방법2:교차검증)
-from sklearn.model_selection import cross_val_score
-svm_rbf_reg_scores = cross_val_score(svm_rbf_reg, ri_MakingLT_prepared_train,ri_MakingLT_labels_train,scoring="neg_mean_squared_error", cv=10)
-svm_rbf_reg_rmse_scores = np.sqrt(-svm_rbf_reg_scores)
-
-def display_scores(scores):
-    print("Scores:", scores)
-    print("Mean:", scores.mean())
-    print("Standard deviation:", scores.std())
-
-print(display_scores(svm_rbf_reg_rmse_scores))
-
-#####GridSearch 방법을 이용해 최적 paramater 찾기
-from sklearn.model_selection import GridSearchCV
-from sklearn.svm import SVR
-param_grid = [
-  {'C': [1, 10, 100, 1000], 'kernel': ['linear']},
-  {'C': [1, 10, 100, 1000], 'gamma': [0.001, 0.0001,'scale'], 'kernel': ['rbf']},
- ]
-
-svm_reg = SVR()
-grid_search = GridSearchCV(svm_reg, param_grid, cv=5,
-                            scoring='neg_mean_squared_error',
-                           return_train_score=True)
-grid_result = grid_search.fit(ri_MakingLT_prepared_train,ri_MakingLT_labels_train)
-print('Best Score: ', grid_result.best_score_)
-print('Best Params: ', grid_result.best_params_)
-
-#마지막으로 최적 paramater를 넣고 test세트에 대하여 장확도를 예측하기
-from sklearn.svm import SVR
 svm_rbf_reg = SVR(C=100, cache_size=200, coef0=0.0, degree=3,
                            epsilon=0.1, gamma='scale', kernel='rbf',
                            max_iter=-1, shrinking=True, tol=0.001,
