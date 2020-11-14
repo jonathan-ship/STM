@@ -80,7 +80,6 @@ print('MAE: ', svm_rbf_reg_mae)
 svm_rbf_reg_mape = (np.abs((ri_MakingLT_predicted - ri_MakingLT_labels_test) / ri_MakingLT_labels_test).mean(axis=0))
 print('MAPE: ', svm_rbf_reg_mape)
 
-
 from sklearn.metrics import mean_squared_log_error
 svm_rbf_reg_rmsle = np.sqrt(mean_squared_log_error(ri_MakingLT_labels_test, ri_MakingLT_predicted))
 print('RMSLE: ', svm_rbf_reg_rmsle)
