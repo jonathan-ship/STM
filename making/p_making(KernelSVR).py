@@ -71,16 +71,16 @@ ri_MakingLT_predicted[ri_MakingLT_predicted<0] = 0
 from sklearn.metrics import mean_squared_error
 svm_rbf_reg_mse = mean_squared_error(ri_MakingLT_labels_test, ri_MakingLT_predicted)
 svm_rbf_reg_rmse = np.sqrt(svm_rbf_reg_mse)
-print(svm_rbf_reg_rmse)
+print('RMSE: ', svm_rbf_reg_rmse)
 
 from sklearn.metrics import mean_absolute_error
 svm_rbf_reg_mae = mean_absolute_error(ri_MakingLT_labels_test, ri_MakingLT_predicted)
-print(svm_rbf_reg_mae)
+print('MAE: ', svm_rbf_reg_mae)
 
 svm_rbf_reg_mape = (np.abs((ri_MakingLT_predicted - ri_MakingLT_labels_test) / ri_MakingLT_labels_test).mean(axis=0))
-print(svm_rbf_reg_mape)
+print('MAPE: ', svm_rbf_reg_mape)
 
 
 from sklearn.metrics import mean_squared_log_error
 svm_rbf_reg_rmsle = np.sqrt(mean_squared_log_error(ri_MakingLT_labels_test, ri_MakingLT_predicted))
-print(svm_rbf_reg_rmsle)
+print('RMSLE: ', svm_rbf_reg_rmsle)

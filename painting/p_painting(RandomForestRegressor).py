@@ -68,16 +68,16 @@ ri_PaintingLT_predicted = rnd_reg.predict(ri_PaintingLT_prepared_test)
 from sklearn.metrics import mean_squared_error
 rnd_reg_mse = mean_squared_error(ri_PaintingLT_labels_test, ri_PaintingLT_predicted)
 rnd_reg_rmse = np.sqrt(rnd_reg_mse)
-print(rnd_reg_rmse)
+print('RMSE: ', rnd_reg_rmse)
 
 from sklearn.metrics import mean_absolute_error
 rnd_reg_mae = mean_absolute_error(ri_PaintingLT_labels_test, ri_PaintingLT_predicted)
-print(rnd_reg_mae)
+print('MAE: ', rnd_reg_mae)
 
 rnd_reg_mape = (np.abs((ri_PaintingLT_predicted - ri_PaintingLT_labels_test) / ri_PaintingLT_labels_test).mean(axis=0))
-print(rnd_reg_mape)
+print('MAPE: ', rnd_reg_mape)
 
 from sklearn.metrics import mean_squared_log_error
 rnd_reg_rmsle = np.sqrt(mean_squared_log_error(ri_PaintingLT_labels_test, ri_PaintingLT_predicted))
-print(rnd_reg_rmsle)
+print('RMSLE: ', rnd_reg_rmsle)
 
