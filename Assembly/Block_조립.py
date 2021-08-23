@@ -271,6 +271,17 @@ tree_mape = (np.abs((BL_LT_predicted - BL_LT_labels_test) / BL_LT_labels_test).m
 tree_rmsle = np.sqrt(mean_squared_log_error(BL_LT_labels_test, BL_LT_predicted))
 # print(tree_rmsle)
 
+#모델 세부 튜닝(예제)
+# from sklearn.model_selection import GridSearchCV
+# param_grid = [
+#   { "max_depth":list(range(1, 100))}
+#  ]
+# grid = GridSearchCV(estimator=ExtraTreeRegressor(random_state=42), param_grid=param_grid, verbose=2, cv=10)
+# grid_result = grid.fit(BL_LT_prepared_train,BL_LT_labels_train)
+# print('Best Score: ', grid_result.best_score_)
+# print('Best Params: ', grid_result.best_params_)
+
+
 ####################################################################################################################
                                               # ExtraTreeRegressor #
 ####################################################################################################################
