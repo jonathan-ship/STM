@@ -361,6 +361,8 @@ deeplearning_model.compile(optimizer="adam", loss='mse', metrics=['accuracy'])
 
 dl_m_hist = deeplearning_model.fit(BL_LT_prepared_train,BL_LT_labels_train)
 
+BL_LT_predicted = deeplearning_model.predict(BL_LT_prepared_test)
+
 a = list(np.array(BL_LT_predicted).flatten())
 
 
@@ -371,7 +373,7 @@ deeplearning_model_rmse = np.sqrt(deeplearning_model_mse)
 deeplearning_model_mae = mean_absolute_error(BL_LT_labels_test, BL_LT_predicted)
 # print(deeplearning_model_mae)
 
-deeplearning_model_mape = (np.abs((BL_LT_predicted - BL_LT_labels_test) / BL_LT_labels_test).mean(axis=0))
+deeplearning_model_mape = (np.abs((a - BL_LT_labels_test) / BL_LT_labels_test).mean(axis=0))
 # print("DNN: "+str(deeplearning_model_mape))
 
 deeplearning_model_rmsle = np.sqrt(mean_squared_log_error(BL_LT_labels_test, BL_LT_predicted))
