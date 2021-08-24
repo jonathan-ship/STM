@@ -1,6 +1,5 @@
 [Lead Time prediction model manual.docx](https://github.com/jonathan-ship/STM/files/7028963/Lead.Time.prediction.model.manual.docx)
-# STM
-  ##1. 리드타임 예측 모델 시스템 설명
+# STM ##1. 리드타임 예측 모델 시스템 설명
     본 Manual에서Python 언어를 활용하여 데이터 분석을 수행하였으며 실제 조선소 데이터에 학습 알고리즘을 적용하여 조립 공정의 생산 리드타임을 예측해 보았다. 본 시험에서 분석에 활용되는 알고리즘은 크게 기계학습, 심층학습, 앙상블학습이다.
     기계학습(지도학습) 알고리즘:
       Liner Regression
@@ -15,8 +14,8 @@
     앙상블 알고리즘:
       Random Forest
       Extra Trees
-      Ada-boost
-  ##2. 개발환경 및 실행 방법
+      Ada-boost 
+   # STM ##2. 개발환경 및 실행 방법
     PyCharm 
       가상 환경을 만든 다음에 pip를 이용해 아내의 package를 다운로드 하기.
       package	version
@@ -31,7 +30,7 @@
       .py파일과 .csv파일 Location (project의 경로) 안에 넣기
       Block_조립.py파일 실행 
         Block_조립.py
-  ##3. Code설명 및 결과 출력
+  # STM ##3. Code설명 및 결과 출력
     .py파일 code 설명 
       Import (python module)
         import pandas as pd
@@ -67,7 +66,7 @@
     Training set를 이용하여 학습 모델을 훈련시킴
     모델의 예측 정확도가 높이기 위하여(더 좋은 성능을 가지고 있는 모델을 찾기 위하여) Scikit-learn library이 제공한 Grid Search, Randomized Search 방법을 이용하여 모델의 지정 parameter 범위 안에서 최적 parameter를 찾는 과정 수행
     최적 parameter를 찾고 나서 다시 모델 안에 넣고 마지막으로 test set에 대하여 예측 수행
-  ##4.정확도 평가 
+  # STM ##4.정확도 평가 
     예측 평가지표
       MAE (mean absolute error)
       MAPE (mean squared percentage error)
