@@ -3,29 +3,29 @@
   ##1. 리드타임 예측 모델 시스템 설명
     본 Manual에서Python 언어를 활용하여 데이터 분석을 수행하였으며 실제 조선소 데이터에 학습 알고리즘을 적용하여 조립 공정의 생산 리드타임을 예측해 보았다. 본 시험에서 분석에 활용되는 알고리즘은 크게 기계학습, 심층학습, 앙상블학습이다.
     기계학습(지도학습) 알고리즘:
-      *Liner Regression
-      *Lasso
-      *Ridge
-      *Support Vector Machine 
+      Liner Regression
+      Lasso
+      Ridge
+      Support Vector Machine 
   	선형 Support Vector Machine(LinearSVR)
   	비선형 Support Vector Machine(KernelSVR)
-      *Decision tree
+      Decision tree
   	심층학습 알고리즘:
-      *Deep learning
+      Deep learning
     앙상블 알고리즘:
-      *Random Forest
-      *Extra Trees
-      *Ada-boost
+      Random Forest
+      Extra Trees
+      Ada-boost
   ##2. 개발환경 및 실행 방법
     PyCharm 
       가상 환경을 만든 다음에 pip를 이용해 아내의 package를 다운로드 하기.
       package	version
-      *python	3.6
-      *pandas	1.1.5
-      *scikit-learn	0.22.2
-      *matplotlib	3.1.3
-      *numpy	1.19.5
-      *keras	2.4.3
+      python	3.6
+      pandas	1.1.5
+      scikit-learn	0.22.2
+      matplotlib	3.1.3
+      numpy	1.19.5
+      keras	2.4.3
     New project 만들기
       File → New project → Create
       .py파일과 .csv파일 Location (project의 경로) 안에 넣기
