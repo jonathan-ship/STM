@@ -6,8 +6,8 @@
       Lasso
       Ridge
       Support Vector Machine 
-  	선형 Support Vector Machine(LinearSVR)
-  	비선형 Support Vector Machine(KernelSVR)
+  	  선형 Support Vector Machine(LinearSVR)
+  	  비선형 Support Vector Machine(KernelSVR)
       Decision tree
   	심층학습 알고리즘:
       Deep learning
