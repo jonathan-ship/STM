@@ -109,20 +109,11 @@ BL_LT_predicted = ada_reg.predict(BL_LT_prepared_test) # AdaBoostRegressor(Decis
 ada_reg_mape_sub = (np.abs((BL_LT_predicted - BL_LT_labels_test) / BL_LT_labels_test).mean(axis=0)) # AdaBoostRegressor(DecisionTreeRegressor) 알고리즘 MAPE 산출
 
 
-from sklearn.svm import LinearSVR
-svm_reg = LinearSVR(epsilon=0.9, random_state=42)
-svm_reg.fit(BL_LT_prepared_train,BL_LT_labels_train) # LinearSVR 알고리즘 학습 수행
-BL_LT_predicted = svm_reg.predict(BL_LT_prepared_test) # LinearSVR 알고리즘 테스트 수행
-svm_reg_mape_sub = (np.abs((BL_LT_predicted - BL_LT_labels_test) / BL_LT_labels_test).mean(axis=0)) # LinearSVR 알고리즘 MAPE 산출
-
-
-
 print("============중조결과============")
 print('AdaBoostRegressor(ExtraTreeRegressor)', ' MAPE :', np.round(ada_et_tree_mape_sub, 4))
 print('AdaBoostRegressor(SVR)', ' MAPE :', np.round(ada_svr_mape_sub, 4))
 print('SVR', ' MAPE :', np.round(svm_rbf_mape_sub, 4))
-print('AdaBoostRegressor(DecisionTreeRegressor)', ' MAPE :', np.round(svm_reg_mape_sub, 4))
-print('LinearSVR', ' MAPE :', np.round(ada_reg_mape_sub, 4))
+print('AdaBoostRegressor(DecisionTreeRegressor)', ' MAPE :', np.round(ada_reg_mape_sub, 4))
 
 
 ################# 중조립 데이터에 대한 전처리 수행하는 부분 ####################################
@@ -212,18 +203,11 @@ BL_LT_predicted = ada_reg.predict(BL_LT_prepared_test) # AdaBoostRegressor(Decis
 ada_reg_mape_grand = (np.abs((BL_LT_predicted - BL_LT_labels_test) / BL_LT_labels_test).mean(axis=0)) # AdaBoostRegressor(DecisionTreeRegressor) 알고리즘 MAPE 산출
 
 
-from sklearn.svm import LinearSVR
-svm_reg = LinearSVR(epsilon=0.9, random_state=42)
-svm_reg.fit(BL_LT_prepared_train,BL_LT_labels_train) # LinearSVR 알고리즘 학습 수행
-BL_LT_predicted = svm_reg.predict(BL_LT_prepared_test) # LinearSVR 알고리즘 테스트 수행
-svm_reg_mape_grand = (np.abs((BL_LT_predicted - BL_LT_labels_test) / BL_LT_labels_test).mean(axis=0)) # LinearSVR 알고리즘 MAPE 산출
-
-
 
 print("============대조결과============")
 print('AdaBoostRegressor(ExtraTreeRegressor)', ' MAPE :', np.round(ada_et_tree_mape_grand,4))
 print('AdaBoostRegressor(SVR)', ' MAPE :', np.round(ada_svr_mape_grand, 4))
 print('SVR', ' MAPE :', np.round(svm_rbf_mape_grand, 4))
-print('AdaBoostRegressor(DecisionTreeRegressor)', ' MAPE :', np.round(svm_reg_mape_grand, 4))
-print('LinearSVR', ' MAPE :', np.round(ada_reg_mape_grand, 4))
+print('AdaBoostRegressor(DecisionTreeRegressor)', ' MAPE :', np.round(ada_reg_mape_grand, 4))
+
 
